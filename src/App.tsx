@@ -1,6 +1,5 @@
 
 import { Provider } from 'react-redux'
-import './App.css'
 import store from './store/store'
 import { Container, Typography } from '@mui/material'
 import AddHabitForm from './components/add-habit-form'

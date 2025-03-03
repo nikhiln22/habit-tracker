@@ -5,6 +5,7 @@ export interface Habit {
     id: string;
     name: string;
     frequency: "daily" | "weekly";
+    description?: string;
     completedDates: string[];
     createdAt: string;
 }
@@ -49,12 +50,13 @@ const habitSlice = createSlice({
     reducers: {
         addHabit: (
             state,
-            action: PayloadAction<{ name: string, frequency: "daily" | "weekly" }>
+            action: PayloadAction<{ name: string, frequency: "daily" | "weekly", description?: string }>
         ) => {
             const newHabit: Habit = {
                 id: Date.now().toString(),
                 name: action.payload.name,
                 frequency: action.payload.frequency,
+                description: action.payload.description,
                 completedDates: [],
                 createdAt: new Date().toISOString(),
             };
