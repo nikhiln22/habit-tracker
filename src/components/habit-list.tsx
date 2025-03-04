@@ -39,7 +39,6 @@ const HabitList: React.FC = () => {
         return streak;
     };
 
-    // Get the best streak for a habit
     const getBestStreak = (habit: Habit) => {
         let bestStreak = 0;
         let currentStreak = 0;
@@ -56,31 +55,29 @@ const HabitList: React.FC = () => {
                 const prevDate = new Date(sortedDates[i - 1]);
                 prevDate.setDate(prevDate.getDate() + 1);
 
-                // Check if this is consecutive day
+
                 if (prevDate.toISOString().split('T')[0] === sortedDates[i]) {
                     currentStreak++;
                 } else {
-                    // Reset streak if days aren't consecutive
+
                     currentStreak = 1;
                 }
             }
 
-            // Update best streak if current streak is better
             bestStreak = Math.max(bestStreak, currentStreak);
         }
 
         return bestStreak;
     };
 
-    // Get color based on streak length
     const getStreakColor = (streak: number) => {
-        if (streak >= 20) return "#f57c00"; // orange
-        if (streak >= 10) return "#ff9800"; // amber
-        if (streak >= 5) return "#ffc107"; // yellow
-        return "#4caf50"; // green
+        if (streak >= 20) return "#f57c00";
+        if (streak >= 10) return "#ff9800";
+        if (streak >= 5) return "#ffc107";
+        return "#4caf50";
     };
 
-    // Get progress color based on completion percentage
+
     const getProgressColor = (streak: number) => {
         const percentage = (streak / 30) * 100;
         if (percentage >= 80) return "success";
@@ -89,7 +86,7 @@ const HabitList: React.FC = () => {
         return "primary";
     };
 
-    // Function to get completion history
+
     const getCompletionHistory = (habit: Habit) => {
         const lastSevenDays = Array.from({ length: 7 }, (_, i) => {
             const date = new Date();
@@ -246,7 +243,6 @@ const HabitList: React.FC = () => {
                                 />
                             </Box>
 
-                            {/* Details expand/collapse section */}
                             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                                 <Button
                                     onClick={() => toggleExpand(habit.id)}

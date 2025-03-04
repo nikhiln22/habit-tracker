@@ -12,7 +12,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 
-// Circular progress with label component
+
 const CircularProgressWithLabel: React.FC<{
     value: number;
     total: number;
@@ -90,7 +90,7 @@ const HabitStats: React.FC = () => {
         return Math.max(...habits.map(getStreak), 0);
     };
 
-    // Calculate weekly completion rate
+    
     const getWeeklyCompletionRate = () => {
         if (habits.length === 0) return 0;
 
@@ -105,7 +105,7 @@ const HabitStats: React.FC = () => {
 
             habits.forEach(habit => {
                 if (habit.frequency === "daily" ||
-                    (habit.frequency === "weekly" && date.getDay() === 0)) { // Sunday for weekly habits
+                    (habit.frequency === "weekly" && date.getDay() === 0)) { 
                     totalPossible++;
                     if (habit.completedDates.includes(dateString)) {
                         totalCompletions++;
@@ -254,7 +254,7 @@ const HabitStats: React.FC = () => {
 
                 <Divider sx={{ my: 3 }} />
 
-                {/* Weekly Progress Overview */}
+                
                 <Box sx={{ mt: 3 }}>
                     <Typography variant="subtitle1" gutterBottom>
                         Weekly Progress Overview
@@ -273,7 +273,7 @@ const HabitStats: React.FC = () => {
                     </Typography>
                 </Box>
 
-                {/* Detailed Habit Metrics */}
+                
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6} md={3}>
                         <Box sx={{ textAlign: 'center', p: 1 }}>
